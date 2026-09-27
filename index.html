@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TANAYİ YAZILIM, MÜHENDİSLİK</title>
+    <style>
+        /* --- MODERN, HAFİF VE HIZLI TASARIM SİSTEMİ --- */
+        :root {
+            --bg-color: #0b0f19; 
+            --card-bg: #131c2e; 
+            --accent: #38bdf8; 
+            --text-main: #f1f5f9;
+            --text-muted: #94a3b8;
+            --border: rgba(56, 189, 248, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.5;
+            padding-top: 70px;
+        }
+
+        .container {
+            max-width: 950px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section { padding: 60px 0 30px 0; }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 35px;
+            color: #ffffff;
+        }
+
+        /* --- MENÜ ALANI --- */
+        header {
+            background-color: #070a12;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-area h1 {
+            font-size: 1.3rem;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            color: #ffffff;
+        }
+
+        .logo-area span { color: var(--accent); }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover { color: var(--accent); }
+
+        /* --- ANASAYFA --- */
+        .hero {
+            min-height: 45vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .hero-content h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            color: #ffffff;
+            line-height: 1.2;
+        }
+
+        .hero-content p {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            margin-bottom: 25px;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            padding: 12px 28px;
+            background-color: var(--accent);
+            color: #0b0f19;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 0.95rem;
+        }
+
+        /* --- DÜZEN YAPILARI --- */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            align-items: stretch;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+        }
+
+        /* --- KART TASARIMI --- */
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border);
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .card h3 {
+            font-size: 1.15rem;
+            margin-bottom: 8px;
+            color: #ffffff;
+        }
+
+        .card p, .about-text p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* --- İLETİŞİM ALANI KUTUCUĞU --- */
+        .box-container {
+            padding: 60px 0 40px 0;
+            text-align: center;
+        }
+
+        .custom-contact-box {
+            background-color: var(--card-bg);
+            border: 2px solid var(--accent);
+            padding: 30px 20px;
+            border-radius: 12px;
+            width: 340px;
+            margin: 0 auto;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(56, 189, 248, 0.08);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #070a12;
+            padding: 30px 0;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            margin-top: 45px;
+        }
+
+        footer p {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-bottom: 10px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            font-size: 0.75rem;
+            text-decoration: none;
+        }
+
+        .footer-links a:hover { color: var(--accent); }
+
+        @media (max-width: 768px) {
+            .grid-2 { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+            .hero-content h2 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVİGASYON -->
+    <header>
+        <div class="container navbar">
+            <div class="logo-area">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                <h1>TANAYİ <span>YAZILIM</span></h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#anasayfa">Anasayfa</a></li>
+                <li><a href="#hakkimizda">Hakkımızda</a></li>
+                <li><a href="#hizmetler">Hizmetler</a></li>
+                <li><a href="#iletisim-bolumu">İletişim</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- ANASAYFA -->
+    <section id="anasayfa" class="hero">
+        <div class="container hero-content">
+            <h2>Fikirlerinizi Kodla Hayata Geçiriyoruz</h2>
+            <p>Tanayi Yazılım ve Mühendislik olarak kurumsal dijital dönüşüm süreçlerine rehberlik ediyor; web otomasyonları ve profesyonel mühendislik altyapıları sunuyoruz.</p>
+            <a href="#iletisim-bolumu" class="btn-primary">Bizimle İletişime Geçin</a>
+        </div>
+    </section>
+
+    <!-- HAKKIMIZDA -->
+    <section id="hakkimizda">
+        <div class="container">
+            <h3 class="section-title">Biz Kimiz?</h3>
+            <div class="grid-2">
+                <div class="about-text">
+                    <h4 style="font-size: 1.3rem; margin-bottom: 10px; color: #fff;">Hakkımızda</h4>
+                    <p>Firmamız, modern endüstrinin ve dijital çağın gereksinimlerine profesyonel çözümler üretmek amacıyla kurulmuştur. Analitik yaklaşımlarımız ve ödün vermediğimiz mühendislik standartlarımızla sektörel otomasyon sistemleri üzerine odaklanıyoruz.</p>
+                </div>
+                <div class="card">
+                    <h3>Kurumsal Vizyonumuz</h3>
+                    <p>Müşterilerimizin iş süreçlerini dijital ortama aktarırken sade, hızlı, kasmayan ve yüksek performanslı sistemler kurmayı amaçlıyoruz.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HİZMETLER -->
+    <section id="hizmetler">
+        <div class="container">
+            <h3 class="section-title">Hizmetlerimiz</h3>
+            <div class="grid-3">
+                <div class="card">
+                    <h3>💻 Özel Yazılım</h3>
+                    <p>İhtiyaçlarınıza tam uyumlu, esnek ve yüksek güvenlikli kurumsal iş yazılımları geliştiriyoruz.</p>
+                </div>
+                <div class="card">
+                    <h3>🌐 Web Çözümleri</h3>
+                    <p>Arama motorlarıyla uyumlu, mobil cihazlarda kusursuz çalışan şık kurumsal siteler.</p>
+                </div>
+                <div class="card">
+                    <h3>⚙️ Mühendislik</h3>
+                    <p>Donanım-yazılım entegrasyonları, otomasyon sistemleri ve teknik danışmanlık.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HİZMETLERİN HEMEN ALTINDAKİ İLETİŞİM KUTUCUĞU -->
+    <section id="iletisim-bolumu">
+        <div class="container box-container">
+            <h3 class="section-title">İletişim</h3>
+            <div class="custom-contact-box">
+                <div style="margin-bottom: 12px; display: flex; justify-content: center; width: 100%;">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                </div>
+                <p style="font-size: 1.5rem; font-weight: 700; color: #ffffff; margin-bottom: 8px; letter-spacing: 0.5px;">
+                    @besiktaslii_65
+                </p>
+                <p style="font-size: 1.2rem; color: #94a3b8; margin: 0; line-height: 1.5;">
+                    instagram<br>
+                    buradan<br>
+                    iletişime<br>
+                    geçiniz.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 <b>TANAYİ YAZILIM, MÜHENDİSLİK</b>. Tüm Hakları Saklıdır.</p>
+            <div class="footer-links">
